@@ -1,0 +1,346 @@
+body{
+    /* 设置内边距 */
+    padding: 0;
+    /* 设置外边距 */
+    margin: 0;
+    /* 字体样式 */
+    font: 12px/1.5 Helvetica Neue,Helvetica,Arial,Hiragino Sans GB,\5FAE\8F6F\96C5\9ED1,tahoma,simsun,\5b8b\4f53;
+    /* 字体粗细 */
+    font-weight: 500;
+}
+
+
+
+
+/* ----------导航栏--------- */
+a{
+    /* 超链接下划线设置为空 */
+    text-decoration: none;
+}
+
+/* ---------------顶部导航栏部分---------------------*/
+/* 设置外层包裹标签，方便实现导航条居中 */
+#topNav{
+    display: block;
+    margin: 0 auto;
+}
+
+/* 设置导航栏父级的效果 */
+ul.Nav{
+    position: relative;
+    height: 31px;
+    width: 100%;
+    margin-top: 0;
+    /* 前端的规范中，ul默认相对左边有40像素的距离，margin-left属性设置为-40像素表示相对于左边向左方向移动40像素的距离，来解决不对齐的问题 */
+    margin-left: -40;
+    background-color: black;
+    color: #999;
+}
+
+/* 对导航栏子级进行设置 */
+ul.Nav li{
+    /* 将li标签的显示设置为行级块模式，这样会让li标签从垂直排列变为水平排列 */
+    display: inline-block;
+    position: relative;
+    line-height: 31px;
+    padding: 0 12px 0;
+    /* 鼠标指针放在该元素一定的边界范围内时所显示的光标形状 */
+    cursor: pointer;
+}
+
+/* 鼠标移动到导航栏li标签上时发生字体变白色的效果 */
+ul.Nav li:hover{
+    color: #fff;
+}
+
+/* 用nth-child()选择器来设置每个选项之间的距离 */
+/* 主要设置第1个和第4个选项，这样一左一右的设置可以将第1到4选项分离成左侧的导航栏 */
+ul.Nav li:nth-child(1){
+    margin-left: 200px;
+}
+ul.Nav li:nth-child(4){
+    margin-right: 140px;
+}
+
+/* 用css将i标签 画成三角形，做倒三角符 */
+ul.Nav li i{
+    position: relative;
+    border: 4px solid #999;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    top: 10px;
+    margin-left: 4px;
+    width: 0;
+    height: 0;
+    /* 加入过渡动画 */
+    transition: all 0.2s ease;
+}
+
+/* 当鼠标经过导航栏的li标签时，i标签发生的变化 */
+ul.Nav li:hover i{
+    top: 16px;
+}
+
+/* 对个人中心等下拉标签设置样式 */
+.personalCenter,
+.customerService,
+.payCenter,
+.consumesInterests,
+.more{
+    padding: 0 10px 0 10px;
+    box-shadow: 1px 1px 15px rgb(228, 228, 228); 
+    width: 100px;
+    position: absolute;
+    display: none;
+    background-color: rgb(253,253,253);
+    margin-left: -12px;
+}
+
+.customerService {
+    width: 90px;
+}
+.payCenter {
+    width: 64px;
+}
+.consumesInterests {
+    width: 76px;
+}
+.more {
+    width: 74px;
+    left: -18px;
+    padding: 0 8px 0 8px;
+}
+
+/* 对个人中心、客户服务、充值中心、更多4个二级菜单选项进行设置，这里我们用a标签作为单个菜单选项的包裹标签 */
+.personalCenter a,
+.customerService a,
+.payCenter a,
+.more a{
+    display: block;
+    width: 100%;
+    color: inherit;
+}
+
+/* 给二级下拉菜单的指定选项设置下划线 */
+.more a:nth-child(1){
+    border-bottom: 1px solid rgb(204, 204, 204);
+}
+.personalCenter a:nth-child(3) {
+    border-bottom: 1px solid rgb(204, 204, 204);
+}
+.personalCenter a:nth-child(6) {
+    border-bottom: 1px solid rgb(204, 204, 204);
+}
+.personalCenter a:nth-child(8) {
+    border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+/* 类名Nav的第7到11个li标签在鼠标经过的时候背景色显示为白色 */
+ul.Nav li:nth-child(7):hover,
+ul.Nav li:nth-child(8):hover,
+ul.Nav li:nth-child(9):hover,
+ul.Nav li:nth-child(10):hover,
+ul.Nav li:nth-child(11):hover{
+    color: rgb(0,0,0,);
+    background-color: rgb(253,253,253);
+}
+
+/* 类名Nav的第7到11个li标签中是拥有下拉二级菜单栏，鼠标经过a标签时，字体标签变为红色 */
+ul.Nav li:nth-child(7) a:hover,
+ul.Nav li:nth-child(8) a:hover,
+ul.Nav li:nth-child(9) a:hover,
+ul.Nav li:nth-child(10) a:hover,
+ul.Nav li:nth-child(11) a:hover{
+    color: rgb(240, 15, 15);
+}
+
+/* 类名Nav的第7到11当鼠标经过时，显示下拉二级菜单 */
+ul.Nav li:nth-child(7):hover .personalCenter,
+ul.Nav li:nth-child(8):hover .customerService,
+ul.Nav li:nth-child(9):hover .payCenter,
+ul.Nav li:nth-child(10):hover .consumesInterests,
+ul.Nav li:nth-child(11):hover .more{
+    display: block;
+    color: rgb(0, 0, 0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----搜索栏-------- */
+/* .container {
+    position: relative;
+    width: 1090px;
+    height: 50x;
+    margin: 0 auto;
+} */
+
+/* 搜索框整体 */
+.searchBar{
+    width: 1090px;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: -12px;
+}
+
+/* 左边logo是一个超链接 */
+.searchBar a{
+    display: block;
+}
+
+/* 设置左边logo */
+.searchBar a img{
+    float: left;
+    width: 210px;
+    height: 68px;
+    cursor: pointer;
+    margin-top: 20px;
+    z-index: 9;
+}
+
+/* 搜索输入框部分 */
+.searchText{
+    float: right;
+    width: 510px;
+    height: 36px;
+    padding-left: 1px;
+    margin-top: 28px;
+    margin-right: 62px;
+    background-color: #ffffff;
+    border: 2px solid #ff2377;
+    border-radius: 40px;
+}
+
+/* 输入框样式设置 */
+.searchText input[type="text"]{
+    display: block;
+    border: 0px;
+    margin-top: 9px;
+    margin-left: 36px;
+    width: 80%;
+}
+
+/* 输入框提示信息样式设置，这里设置为italic，表示斜体 */
+.searchText input[type="text"]::placeholder{
+    font-style: italic;
+}
+
+/* 点击输入框时隐藏轮廓 */
+.searchText input[type="text"]:focus{
+    outline: none;
+}
+
+/* 设置输入框左边的那个小放大镜，这里有个细节 */
+/* all_Icon.png实际是一个很大的雪碧图，我们这里使用css3的背景定位，设置要裁剪的区域为-466px,-677px这个位置 */
+.searchText .zoomIcon{
+    background-image: url('./all_Icon.png');
+    background-position: -466px -667px;
+    margin-left: 10px;
+    margin-top: 11px;
+    width: 14px;
+    height: 14px;
+    position: absolute; 
+}
+
+/* 搜索按钮样式 */
+.searchButton{
+    cursor: pointer;
+    float: right;
+    width: 56px;
+    height: 38px;
+    margin-right: -4px;
+    margin-top: -29px;
+    background-color: #ff2337;
+    border-radius: 30px;
+    display: block;
+    margin-top: -27px;
+}
+
+/* 搜索按钮图标 */
+.searchButton i{
+    background-image: url('./放大镜大.png');
+    width: 56px;
+    height: 38px;
+    background-position: 50%;
+    display: block;
+    background-repeat: no-repeat;
+}
+
+/* 鼠标经过搜索按钮时 */
+.searchButton:hover{
+    background: linear-gradient(270deg, #f85a7d, #ff3234);
+}
+
+/* 购物车 */
+.shopCar{
+    border: 2px solid #ff1e32;
+    display: block;
+    width: 106px;
+    height: 36px;
+    float: right;
+    border-radius: 36px;
+    margin-top: 28px;
+    margin-right: 75px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 36px;
+}
+
+/* 购物车图标 */
+.shopIcon {
+    background: url(./购物车.png) no-repeat 0 0;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 2px;
+    margin-bottom: -5px;
+}
+
+/* 当鼠标移动到购物车标签上时，购物车标签的字体颜色和底色的变化 */
+.shopCar:hover {
+    color: #ff1e32;
+    background-color: #fff4f5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----------分类导航栏 ------------*/
+/* 分类导航 */
+.classificationNav{
+    width: 1090px;
+}
+/* 对分类导航栏的水平导航栏进行行级块元素设置 */
+.classificationNav ul.horizontal li{
+    display: inline-block;
+    font-weight: bolder;
+    overflow: hidden;
+    font-size: 14px;
+    height: 40px;
+    padding: 0 20px;
+    line-height: 40px;
+}
